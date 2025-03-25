@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './loginPage.css';
 
 const LoginPage = () => {
   const [name, setName] = useState('');
@@ -25,26 +26,32 @@ const LoginPage = () => {
 
   return (
     <>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <br />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <button type="submit">Log In</button>
-      </form>
+      <div className="login-container">
+        <form onSubmit={handleSubmit} className="login-form">
+          <h2 className="login-title">Login</h2>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="login-input"
+          />
+          <br />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="login-input"
+          />
+          <br />
+          <button type="submit" className="login-button">
+            Log In
+          </button>
+        </form>
+      </div>
     </>
   );
 };
